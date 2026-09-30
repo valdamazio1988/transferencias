@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transferências TJB</title>
+<meta name="apple-mobile-web-app-title" content="Transferências TJB">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<script>
+  // ===== LINK DA FERRAMENTA (o link do Google que termina em /exec) =====
+  var FERRAMENTA = "https://script.google.com/macros/s/AKfycbwN-JiHddxhKmfsM5BBcYBya3s2nywliP67UHKUcRfO7yf7QX_f3gSZUfywrBGL1yA/exec";
+  // =====================================================================
+  // Aberta pelo ícone da tela de início (?app): vai direto para a ferramenta.
+  if (location.search.indexOf('app') >= 0) { location.replace(FERRAMENTA); }
+  // Aberta pelo link: troca o endereço para ?app, assim o atalho salvo já abre direto.
+  else { try { history.replaceState(null, '', location.pathname + '?app'); } catch (e) {} }
+</script>
+<style>
+  :root{--verde:#23664A;--tinta:#17201C;--fundo:#F2F4F1}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--tinta);padding:24px 16px;line-height:1.45}
+  .card{max-width:440px;margin:0 auto;background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 12px rgba(0,0,0,.06);text-align:center}
+  img.logo{width:120px;height:120px;border-radius:24px}
+  h1{font-size:1.35rem;margin:12px 0 4px}
+  p{margin:6px 0}
+  ol{text-align:left;padding-left:22px;margin:16px 0}
+  li{margin-bottom:10px}
+  .btn{display:block;background:var(--verde);color:#fff;text-decoration:none;font-weight:700;padding:14px;border-radius:10px;margin-top:18px;font-size:1.05rem}
+  .muted{color:#5A6760;font-size:.9rem}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="apple-touch-icon.png" alt="Logo Tabacaria JB">
+    <h1>Transferências TJB</h1>
+    <p class="muted">Coloque o ícone na tela do iPhone:</p>
+    <ol>
+      <li>Toque no botão <b>Compartilhar</b> (quadrado com seta para cima), embaixo da tela. Se não aparecer, toque nos <b>três pontinhos (…)</b> e depois em <b>Compartilhar</b>.</li>
+      <li>Toque em <b>"Adicionar à Tela de Início"</b>.</li>
+      <li>Toque em <b>"Adicionar"</b>, no canto de cima.</li>
+    </ol>
+    <p class="muted">Depois é só tocar no ícone com o logo da TJB.</p>
+    <a class="btn" id="abrir" href="#">Abrir a ferramenta agora</a>
+  </div>
+<script>document.getElementById('abrir').href = FERRAMENTA;</script>
+</body>
+</html>
