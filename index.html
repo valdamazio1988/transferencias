@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transferências TJB</title>
 <meta name="apple-mobile-web-app-title" content="Transferências TJB">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <script>
   // ===== LINK DA FERRAMENTA (o link do Google que termina em /exec) =====
   var FERRAMENTA = "https://script.google.com/macros/s/AKfycbwN-JiHddxhKmfsM5BBcYBya3s2nywliP67UHKUcRfO7yf7QX_f3gSZUfywrBGL1yA/exec";
   // =====================================================================
-  // Aberta pelo ícone da tela de início (?app): vai direto para a ferramenta.
-  if (location.search.indexOf('app') >= 0) { location.replace(FERRAMENTA); }
-  // Aberta pelo link: troca o endereço para ?app, assim o atalho salvo já abre direto.
-  else { try { history.replaceState(null, '', location.pathname + '?app'); } catch (e) {} }
+  // Aberta pelo ícone da Tela de Início (modo app): vai direto para a ferramenta.
+  var modoApp = window.navigator.standalone === true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  if (modoApp) { location.replace(FERRAMENTA); }
 </script>
 <style>
   :root{--verde:#23664A;--tinta:#17201C;--fundo:#F2F4F1}
@@ -40,7 +41,7 @@
       <li>Toque em <b>"Adicionar à Tela de Início"</b>.</li>
       <li>Toque em <b>"Adicionar"</b>, no canto de cima.</li>
     </ol>
-    <p class="muted">Depois é só tocar no ícone com o logo da TJB.</p>
+    <p class="muted">Deixe ligada a opção <b>"Abrir como app web"</b>. Depois é só tocar no ícone com o logo da TJB.</p>
     <a class="btn" id="abrir" href="#">Abrir a ferramenta agora</a>
   </div>
 <script>document.getElementById('abrir').href = FERRAMENTA;</script>
